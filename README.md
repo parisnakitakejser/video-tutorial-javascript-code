@@ -1,1 +1,1 @@
-# video-tutorial-typescript-code
+# video-tutorial-javascript-code
