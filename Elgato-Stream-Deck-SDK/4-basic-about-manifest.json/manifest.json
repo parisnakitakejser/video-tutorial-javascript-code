@@ -1,0 +1,38 @@
+{
+  "Actions": [{
+    "Icon": "assets/action-icon/counter-increment/icon",
+    "Name": "Counter Increment",
+    "States": [{
+      "Image": "assets/action-icon/counter-increment/icon-default"
+    }],
+    "UUID": "sh.pnk.hello-world.counter-increment"
+  }, {
+    "Icon": "assets/action-icon/counter-decrement/icon",
+    "Name": "Counter Decrement",
+    "States": [{
+      "Image": "assets/action-icon/counter-decrement/icon-default"
+    }],
+    "UUID": "sh.pnk.hello-world.counter-decrement"
+  }, {
+    "Icon": "assets/action-icon/counter-stats/icon",
+    "Name": "Counter Stats",
+    "States": [{
+      "Image": "assets/action-icon/counter-stats/icon-default"
+    }],
+    "UUID": "sh.pnk.hello-world.counter-stats"
+  }],
+  "Author": "Paris Nakita Kejser",
+  "CodePath": "code.html",
+  "Description": "This plugin is just for testing and learning how Elgato Stream Deck SDK working",
+  "Icon": "assets/plugin-icon",
+  "Name": "PNK - Hello world",
+  "Version": "0.1",
+  "SDKVersion": 2,
+  "OS": [{
+    "Platform": "windows",
+    "MinimumVersion": "10"
+  }],
+  "Software": {
+    "MinimumVersion": "4.1"
+  }
+}

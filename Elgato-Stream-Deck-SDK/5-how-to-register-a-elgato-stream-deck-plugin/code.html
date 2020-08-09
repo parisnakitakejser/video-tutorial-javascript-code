@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sh.pnk.hello-world</title>
+</head>
+<body>
+<script>
+    function connectElgatoStreamDeckSocket(inPort, inPluginUUID, inRegisterEvent, inInfo) {
+        console.log('inPort', inPort)
+        console.log('inPluginUUID', inPluginUUID)
+        console.log('inRegisterEvent', inRegisterEvent)
+        console.log('inInfo', inInfo)
+
+        websocket = new WebSocket("ws://127.0.0.1:"+ inPort)
+        websocket.onopen = function() {
+            var json = {
+                "event": inRegisterEvent,
+                "uuid": inPluginUUID
+            }
+
+            console.log('websocket onopen json data:', json)
+
+            websocket.send(JSON.stringify(json))
+        }
+
+        websocket.onmessage = function(evt) {
+            console.log('onmessage event triggered:', evt)
+        }
+
+        websocket.onclose = function() {
+            console.log('Websocket connection is closed!')
+        }
+    }
+</script>
+</body>
+</html>
