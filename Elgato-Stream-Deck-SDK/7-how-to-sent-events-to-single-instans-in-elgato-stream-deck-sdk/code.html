@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sh.pnk.hello-world</title>
+</head>
+<body>
+<script>
+    var counter = 0;
+
+    counterStats = {
+        type: 'sh.pnk.hello-world.counter-stats',
+        SetTitle: function (context) {
+            counter++;
+            console.log('increment counter:', counter)
+
+            var json = {
+                "event": "setTitle",
+                "context": context,
+                "payload": {
+                    "title": ""+ counter,
+                    "target": 0
+                }
+            }
+            console.log('json', json)
+            websocket.send(JSON.stringify(json));
+        }
+    }
+
+    function connectElgatoStreamDeckSocket(inPort, inPluginUUID, inRegisterEvent, inInfo) {
+        console.log('inPort', inPort)
+        console.log('inPluginUUID', inPluginUUID)
+        console.log('inRegisterEvent', inRegisterEvent)
+        console.log('inInfo', inInfo)
+
+
+        websocket = new WebSocket("ws://127.0.0.1:"+ inPort)
+        websocket.onopen = function() {
+            var json = {
+                "event": inRegisterEvent,
+                "uuid": inPluginUUID
+            }
+
+            console.log('websocket onopen json data:', json)
+
+            websocket.send(JSON.stringify(json))
+        }
+
+        websocket.onmessage = function(evt) {
+            var json_obj = JSON.parse(evt.data)
+            var event = json_obj['event']
+            var action = json_obj['action']
+            var context = json_obj['context']
+
+            // console.log('event', event)
+            // console.log('action', action)
+            // console.log('context', context)
+            // console.log('=================>')
+
+            if (event === 'keyDown') {
+                console.log('Hit keyDown')
+                console.log('Action:', action)
+                console.log('coordinates', json_obj['payload']['coordinates'])
+
+                if (counterStats.type === action) {
+                    counterStats.SetTitle(context)
+                }
+            } else if (event === 'keyUp') {
+                console.log('Hit keyUp')
+                console.log('coordinates', json_obj['payload']['coordinates'])
+            } else if (event === 'willAppear') {
+                console.log('Hit willAppear')
+                console.log('coordinates', json_obj['payload']['coordinates'])
+
+                if (counterStats.type === action) {
+                    counter = -1;
+                    counterStats.SetTitle(context)
+                }
+            } else if (event === 'willDisappear') {
+                console.log('Hit willDisappear')
+                console.log('coordinates', json_obj['payload']['coordinates'])
+            }
+            // We don't use it right now but its still okay to try out of your self! :)
+            else if (event === 'titleParametersDidChange') {
+                console.log('Hit titleParametersDidChange')
+            } else if (event === 'deviceDidConnect') {
+                console.log('Hit deviceDidConnect')
+            } else if (event === 'deviceDidDisconnect') {
+                console.log('Hit deviceDidDisconnect')
+            } else if (event === 'applicationDidLaunch') {
+                console.log('Hit applicationDidLaunch')
+            } else if (event === 'applicationDidTerminate') {
+                console.log('Hit applicationDidTerminate')
+            } else if (event === 'systemDidWakeUp') {
+                console.log('Hit systemDidWakeUp')
+            } else if (event === 'propertyInspectorDidAppear') {
+                console.log('Hit propertyInspectorDidAppear')
+            } else if (event === 'propertyInspectorDidDisappear') {
+                console.log('Hit propertyInspectorDidDisappear')
+            } else if (event === 'sendToPlugin') {
+                console.log('Hit sendToPlugin')
+            } else if (event === 'didReceiveSettings') {
+                console.log('Hit didReceiveSettings')
+            } else if (event === 'didReceiveGlobalSettings') {
+                console.log('Hit didReceiveGlobalSettings')
+            } else {
+                console.log('Event don\'t catch, why?:', event)
+            }
+        }
+
+        websocket.onclose = function() {
+            console.log('Websocket connection is closed!')
+        }
+    }
+</script>
+</body>
+</html>
