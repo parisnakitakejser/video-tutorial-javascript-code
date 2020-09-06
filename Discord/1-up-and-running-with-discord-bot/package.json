@@ -1,0 +1,13 @@
+{
+  "name": "discord",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "bot": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}
