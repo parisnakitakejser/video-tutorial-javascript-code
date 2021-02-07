@@ -1,6 +1,6 @@
 # video-tutorial-javascript-code
 
-I got recorded and published 64 javascript video tutorials, and still keep published new videos.
+I got recorded and published 68 javascript video tutorials, and still keep published new videos.
 
 **JavaScript video course:**
 
@@ -8,3 +8,4 @@ I got recorded and published 64 javascript video tutorials, and still keep publi
 - [Elgato Stream Deck Application Plugin SDK Developering](https://www.youtube.com/playlist?list=PLLhEJK7fQIxBzSEWrRdNL5h8-0Ugd612k) - 8 videos
 - [TypeScript](https://www.youtube.com/playlist?list=PLLhEJK7fQIxB6QV4iWY8M1pd62MCAg2h0) - 9 videos
 - [Bootstrap-vue in VueJS](https://www.youtube.com/playlist?list=PLLhEJK7fQIxAoIA1sq_ZkbCbmeAbCshM6) - 43 videos
+- [Express.js for beginners](https://www.youtube.com/playlist?list=PLLhEJK7fQIxCplQS4lIdTvyOIbgBDJvoj) - 4 videos
