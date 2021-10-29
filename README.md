@@ -1,8 +1,8 @@
-# video-tutorial-javascript-code
+# ![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg) Awesome JavaScript Video Tutorial 
 
-I got recorded and published 75 javascript video tutorials, and still keep published new videos.
+> This JavaScript Video Tutorial list its created by [Paris Nakita Kejser](https://www.youtube.com/channel/UCkFxhKB3S-JzvbXzYrZGFqw) on Youtube and all video related files can be found here. If you like what you are seen then pls subscribe my YouTube channel and hit the star for this repo.
 
-**JavaScript video course:**
+# Contents <!-- omit in toc -->
 
 - [Discord Bot API in nodejs](https://www.youtube.com/playlist?list=PLLhEJK7fQIxDAPJTRAr5qQCSZMpj5TAXP) - 4 videos
 - [Elgato Stream Deck Application Plugin SDK Developering](https://www.youtube.com/playlist?list=PLLhEJK7fQIxBzSEWrRdNL5h8-0Ugd612k) - 8 videos
